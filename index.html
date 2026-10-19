@@ -1560,6 +1560,35 @@ I used a side-by-side layout showing actual gameplay alongside the PB Vision app
 
   </div>
 </sc-if>
+
+<!-- VETTA TESTIMONIALS -->
+<sc-if value="{{ cur.testimonials }}">
+  <div style="margin-bottom: 40px;">
+
+    <h4 style="font-size: 20px; color: #1E3B30; margin: 0 0 10px;">
+      Testimonials & Client Feedback
+    </h4>
+
+    <p style="color: #4F5F57; font-size: 14px; margin: 0 0 20px;">
+      Feedback and testimonials highlighting
+      my creative work, collaboration, and contributions
+      to Vetta Sports and Frontenac projects.
+    </p>
+
+    <div style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px;">
+
+      <sc-for list="{{ cur.testimonials }}" as="testimonial">
+        <img
+          src="{{ testimonial }}"
+          alt="Client testimonial and feedback"
+          loading="lazy"
+          style="width: 380px; max-width: 85vw; height: auto; object-fit: contain; align-self: flex-start; flex-shrink: 0; border-radius: 12px; background: #F6F1EA;"
+        />
+      </sc-for>
+
+    </div>
+  </div>
+</sc-if>
   
 <!-- BRAND IDENTITY COLLECTION -->
 <sc-if value="{{ cur.brands }}">
@@ -1698,6 +1727,10 @@ class Component extends DCLogic {
     (_, i) => `vetta-assets/VS-reel-${i + 1}.mp4`
   ),
   promoVideo: 'vetta-assets/VS promo vid.mp4',
+  testimonials: Array.from(
+  { length: 5 },
+  (_, i) => `vetta-assets/testimonial ${i + 1}.png`
+),
   tools: 'Canva, Adobe Photoshop, CapCut',
 toolIcons: [
   {
